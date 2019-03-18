@@ -1,16 +1,16 @@
 #include "SpaceHero.h"
 #include "eTypes.h"
-
 #include "Asteroid.h"
 #include "Constants.h"
 #include "Level1.h"
 #include "Projectile.h"
 #include "SceneManager.h"
+#include "WelcomeScreen.h"
 
 
 SpaceHero::SpaceHero() { }
 
-SpaceHero::~SpaceHero() 
+SpaceHero::~SpaceHero()
 {
 	if (gData)
 		delete gData;
@@ -25,7 +25,10 @@ void SpaceHero::Update()
 	switch (gState)
 	{
 	case GameState::Run:
-	{		
+	{
+		if (!player)
+			return;
+
 		// Check if the objective is reached
 		if (isObjectiveReached(player))
 			return;
@@ -50,15 +53,25 @@ void SpaceHero::Update()
 		spawnAsteroid(scene);
 	} break;
 	case GameState::LevelComplete:
+		if (!player) return;
 		levelComplete(player);
 		break;
 	case GameState::ResetLevel:
+		if (!player) return;
 		gData->ResetLevel();
 		AddScene(SceneManager::GetNewScene(gData->GetLevelNumber(), gData));
 		gState = GameState::Run;
 		break;
 	case GameState::GameOver:
+		if (!player) return;
 		gameOver();
+		break;
+	case GameState::MainManu:
+		if (gData->GetLevelNumber() > 0)
+		{
+			AddScene(SceneManager::GetNewScene(gData->GetLevelNumber(), gData));
+			gState = GameState::Run;
+		}			
 		break;
 	}
 }
@@ -71,25 +84,25 @@ void SpaceHero::Init()
 	auto director = Engine::Director::getInstance();
 
 	// Explosion image
-	Engine::eImage* explosionImage = new Engine::eImage("Resources/explosion.png", "explosion", new RECT { 0, 128, 128, 0 });
+	Engine::eImage* explosionImage = new Engine::eImage("Resources/explosion.png", "explosion", new RECT{ 0, 128, 128, 0 });
 	director->GetResourceManager()->AddImage(explosionImage);
-
 	// Projectile image
 	Engine::eImage* image = new Engine::eImage("Resources/projectile.png", projectileID, new RECT{ 0, 40, 40, 0 });
 	director->GetResourceManager()->AddImage(image);
-
 	// player sprite with explosion
 	image = new Engine::eImage("Resources/rocketsheet.png", playerID, new RECT{ 0, 150, 60, 0 });
 	director->GetResourceManager()->AddImage(image);
-
 	// asteroid image
 	image = new Engine::eImage("Resources/asteroidsheet.png", asteroidID);
-	director->GetResourceManager()->AddImage(image);	
+	director->GetResourceManager()->AddImage(image);
+	// start button image
+	image = new Engine::eImage("Resources/buttonsheet.png", startbuttonID, new RECT{ 0, 64, 151, 0 });
+	director->GetResourceManager()->AddImage(image);
+	// main menu background image 
+	image = new Engine::eImage("Resources/GameLogo.jpg", gameLogoID, new RECT{ 0, 400, 600, 0 });
+	director->GetResourceManager()->AddImage(image);
 
-	// Add scene
-	auto level1 = new Level1(gData);
-	level1->Init();
-	AddScene(level1);
+	AddScene(SceneManager::GetNewScene(gData->GetLevelNumber(), gData));
 }
 
 // HELPER METHODS ****************************************
@@ -148,7 +161,7 @@ void SpaceHero::gameOver()
 	{
 		gData->ResetGameData();
 		AddScene(SceneManager::GetNewScene(gData->GetLevelNumber(), gData));
-		gState = GameState::Run;
+		gState = GameState::MainManu;
 		displaymessageTimer = 0.0f;
 	}
 }

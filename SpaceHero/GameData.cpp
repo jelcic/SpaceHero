@@ -35,7 +35,7 @@ float GameData::GetPlayerScorePercent()
 
 void GameData::ResetGameData()
 {
-	levelNumber = 1;
+	levelNumber = 0;
 	score = 0;
 	playerLives = 3;
 	playerEnergy = MaxPlayerHealth;

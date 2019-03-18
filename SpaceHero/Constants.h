@@ -14,6 +14,8 @@ const UINT GAME_HEIGHT{ 600 };
 const std::string playerID{ "player" };
 const std::string asteroidID{ "asteroid" };
 const std::string projectileID{ "projectile" };
+const std::string startbuttonID{ "button" };
+const std::string gameLogoID{ "gameLogo" };
 
 // Asteroids masses
 const float sAsteroidMass{ 15.0f };

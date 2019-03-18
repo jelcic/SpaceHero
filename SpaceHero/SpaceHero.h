@@ -13,7 +13,7 @@ public:
 	void Init() override;
 
 	GameData* gData;
-	GameState gState{GameState::Run};
+	GameState gState{GameState::MainManu};
 private:
 	void Update() override;
 

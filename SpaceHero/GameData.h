@@ -35,7 +35,7 @@ public:
 	bool GameOverMessageShow{ false };
 	bool WelcomeMessageShow{ false };
 private:
-	int levelNumber{1};
+	int levelNumber{};
 	float score{};
 	int playerLives{ 3 };
 	int playerEnergy{ MaxPlayerHealth };

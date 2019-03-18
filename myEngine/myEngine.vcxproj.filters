@@ -60,6 +60,9 @@
     <ClInclude Include="eGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="eButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Director.cpp">
@@ -102,6 +105,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="eGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="eButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

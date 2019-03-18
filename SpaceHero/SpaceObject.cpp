@@ -14,7 +14,10 @@ SpaceObject::~SpaceObject() { }
 
 void SpaceObject::update(float dt) { }
 
-void SpaceObject::draw() { }
+void SpaceObject::draw()
+{
+	mainImage->Draw(nullptr, Position, objectSize, rotationCenter, AnchorPoint, Angle, scale);
+}
 
 void SpaceObject::init() { }
 

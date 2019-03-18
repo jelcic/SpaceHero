@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "WelcomeScreen.h"
 #include "Level1.h"
 #include "Level2.h"
 
@@ -21,6 +22,11 @@ Engine::eScene * SceneManager::GetNewScene(int currentscene, GameData* gData)
 
 	switch (currentscene)
 	{
+	case 0:
+	{
+		scene = new WelcomeScreen(gData);
+		scene->Init();
+	} break;
 	case 1:
 	{
 		scene = new Level1(gData);

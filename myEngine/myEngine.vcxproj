@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="eButton.h" />
     <ClInclude Include="eRectangleCollider.h" />
     <ClInclude Include="eCircleCollider.h" />
     <ClInclude Include="eCollider.h" />
@@ -36,6 +37,7 @@
     <ClInclude Include="eTypes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="eButton.cpp" />
     <ClCompile Include="eRectangleCollider.cpp" />
     <ClCompile Include="eCircleCollider.cpp" />
     <ClCompile Include="eCollider.cpp" />

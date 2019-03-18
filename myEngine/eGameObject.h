@@ -14,8 +14,8 @@ namespace Engine
 		eGameObject();
 		virtual ~eGameObject();
 
-		// Instance name
-		std::string name;
+		// Instance id
+		int id;
 		// Active true we updating and drawing an object
 		bool active{ true };
 
@@ -53,7 +53,7 @@ namespace Engine
 		int zOrder{};
 
 		// Names of objects which do not collide with this object
-		std::vector<std::string> notCollidingWith;
+		std::vector<int> notCollidingWith;
 	protected:
 		// Transform properties
 		Vec2 AnchorPoint{ Vec2(0,0) };

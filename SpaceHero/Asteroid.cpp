@@ -63,8 +63,8 @@ Engine::eGameObject* Asteroid::Spawning(Engine::eGameObject* object, GameData* d
 		if (object == nullptr)
 		{
 			auto resourceManager = director->GetResourceManager();
-			object = new Asteroid(resourceManager->GetImage("asteroid"),
-				resourceManager->GetImage("explosion"), 2, data);
+			object = new Asteroid(resourceManager->GetImage(asteroidID),
+				resourceManager->GetImage(explosionID), 2, data);
 			object->Init();
 			return object;
 		}
@@ -115,7 +115,7 @@ void Asteroid::init()
 	AnchorPoint = Engine::Vec2(0.5f, 0.5f);
 	active = true;
 	State = AsteroidState::Active;
-	name = asteroidID;
+	id = asteroidID;
 
 	// Set mass based on object size
 	if (y == 2)
@@ -136,22 +136,22 @@ void Asteroid::Collision(eGameObject* secondObject)
 	if (!object)
 		return;
 
-	if (object->name != projectileID)
+	if (object->id != projectileID)
 		ResolveCollision(object, 0.2f, 5.0f);
 	else
 		ResolveCollision(object, 0.02f, 5.0f);
 
-	GetHitWith(object->name);
-	object->GetHitWith(name);
+	GetHitWith(object->id);
+	object->GetHitWith(id);
 }
 
-void Asteroid::GetHitWith(std::string oName)
+void Asteroid::GetHitWith(int oId)
 {
-	if (projectileID == oName)
+	if (projectileID == oId)
 		LifeEnergy -= 30.0f;
 
 	if (LifeEnergy <= 0 || 
-		Mass == sAsteroidMass && oName == playerID)
+		Mass == sAsteroidMass && oId == playerID)
 		Explode();
 }
 

@@ -187,7 +187,7 @@ void Player::init()
 	objectSize.Width = 60;
 	objectSize.Height = 150;
 	rotationCenter = Engine::Vec2(objectSize.Width * 0.5f, (-objectSize.Height) * 0.5f);
-	name = playerID;
+	id = playerID;
 	ShipEngineOff();
 
 	std::vector<Engine::Vec2> colliderPoints{ Engine::Vec2(-30, -45.0f), Engine::Vec2(-15.0f, -30.0f), Engine::Vec2(0.0f, -45.0f), Engine::Vec2(15.0f, -30.0f), Engine::Vec2(30.0f, -45.0f),
@@ -202,12 +202,12 @@ void Player::init()
 
 void Player::Collision(eGameObject * secondObject)
 {
-	if (secondObject->name != asteroidID)
+	if (secondObject->id != asteroidID)
 		return;
 
 	SpaceObject* object = dynamic_cast<SpaceObject*>(secondObject);
 	ResolveCollision(object, 0.2f, 20.0f);
-	object->GetHitWith(name);
+	object->GetHitWith(id);
 	GetHitWith(asteroidID);
 	return;
 }
@@ -218,7 +218,7 @@ void Player::ResolveCollision(SpaceObject * secondObject, float speedCoef, float
 	rotation *= -0.5f;
 }
 
-void Player::GetHitWith(std::string oName)
+void Player::GetHitWith(int oId)
 {
 	gData->DecreaseEnergy(30);
 	if (gData->GetPlayerEnergy() <= 0)
@@ -227,8 +227,7 @@ void Player::GetHitWith(std::string oName)
 	{
 		recoveringTimer = 0.0f;
 		collide = false;
-	}
-		
+	}		
 }
 
 void Player::Explode()

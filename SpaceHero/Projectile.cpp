@@ -8,7 +8,7 @@ Projectile::Projectile(Engine::eImage* mImage, Engine::Vec2 startPosition, float
 {
 	Position = startPosition;
 	Angle = angle;
-	name = projectileID;
+	id = projectileID;
 	Velocity.X = (float)sin(Angle) * Speed;
 	Velocity.Y = (float)cos(Angle) * Speed;
 	SetObjectSize((int)imageSize, (int)imageSize);
@@ -24,12 +24,12 @@ void Projectile::Collision(eGameObject * secondObject)
 
 	if (object)
 	{
-		GetHitWith("");
-		object->GetHitWith(name);
+		GetHitWith(100);
+		object->GetHitWith(id);
 	}
 }
 
-void Projectile::GetHitWith(std::string oName)
+void Projectile::GetHitWith(int oId)
 {
 	active = false;
 	collide = false;

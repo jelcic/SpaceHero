@@ -24,7 +24,7 @@ namespace Engine
 		return false;
 	}
 
-	bool Engine::ResourceManager::RemoveImage(std::string imageTag)
+	bool Engine::ResourceManager::RemoveImage(int imageTag)
 	{
 		for (auto i = ImageList.begin(); i != ImageList.end(); i++)
 		{
@@ -50,7 +50,7 @@ namespace Engine
 		return false;
 	}
 
-	eImage * Engine::ResourceManager::GetImage(std::string imageTag)
+	eImage * Engine::ResourceManager::GetImage(int imageTag)
 	{
 		eImage* img = nullptr;
 		for(eImage* image : ImageList)

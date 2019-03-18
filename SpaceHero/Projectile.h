@@ -10,7 +10,7 @@ public:
 	// Object reaction on collision
 	virtual void Collision(eGameObject* secondObject) override;
 	// When collides as second object
-	virtual void GetHitWith(std::string oName) override;
+	virtual void GetHitWith(int oId) override;
 
 	// Spawning functionality
 	static Projectile* Spawning(Projectile * projectileForReset, Engine::Vec2 startPosition, float angle);

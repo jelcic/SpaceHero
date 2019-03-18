@@ -52,19 +52,19 @@ void Engine::eScene::RemoveGameObject(eGameObject * object)
 	// to do
 }
 
-Engine::eGameObject * Engine::eScene::GetGameObject(std::string name)
+Engine::eGameObject * Engine::eScene::GetGameObject(int id)
 {
 	for (auto object : objectsList)
-		if(object->name == name)
+		if(object->id == id)
 			return object;
 
 	return nullptr;
 }
 
-Engine::eGameObject * Engine::eScene::GetGameObject(std::string name, bool state)
+Engine::eGameObject * Engine::eScene::GetGameObject(int id, bool state)
 {
 	for (auto object : objectsList)
-		if (object->name == name && object->active == state)
+		if (object->id == id && object->active == state)
 			return object;
 
 	return nullptr;

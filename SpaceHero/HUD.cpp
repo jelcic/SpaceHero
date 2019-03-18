@@ -4,7 +4,7 @@
 
 HUD::HUD(GameData * data) : gData(data)
 {
-	name = "HUD";
+	id = hudID;
 }
 
 HUD::~HUD()
@@ -36,17 +36,17 @@ void HUD::init()
 	D3DXCreateFont(director->GetGraphicsManager()->GetDevice(), 15, 0, 700, 1, false, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS,
 		ANTIALIASED_QUALITY, FF_DONTCARE, "Arial", &hfont);
 
-	HealthBarBox = new Engine::eImage("Resources/energyUI.png", "energyUI", new RECT{ 0, 71, 200, 0 });
+	HealthBarBox = new Engine::eImage("Resources/energyUI.png", energyUI_ID, new RECT{ 0, 71, 200, 0 });
 	hBarPosition = { 20.0f, float(windowHeight - 80) };
 	
-	HealthBar = new Engine::eImage("Resources/energybar.png", "energybar", new RECT{ 0, 15, 134, 0 });
+	HealthBar = new Engine::eImage("Resources/energybar.png", energybarID, new RECT{ 0, 15, 134, 0 });
 	healthPosition = { hBarPosition.X + 67, float(windowHeight - 40) };
 	HealthBar->DrawRect->left = 4;
 
-	FuelBar = new Engine::eImage("Resources/fuelbar.png", "fuelbar", new RECT{ 0, 15, 134, 0 });
+	FuelBar = new Engine::eImage("Resources/fuelbar.png", fuelbarID, new RECT{ 0, 15, 134, 0 });
 	fuelPosition = { hBarPosition.X + 65, float(windowHeight - 57) };
 
-	ScoreBar = new Engine::eImage("Resources/scoreBar.png", "scoreBar", new RECT{ 0, 20, 300, 0 });
+	ScoreBar = new Engine::eImage("Resources/scoreBar.png", scoreBarID, new RECT{ 0, 20, 300, 0 });
 	scorePosition = { float(windowWidth - 320), float(windowHeight - 40) };
 	scoreMaxX = float(scorePosition.X + 298);
 	scoreFullX = float(scorePosition.X + 3);

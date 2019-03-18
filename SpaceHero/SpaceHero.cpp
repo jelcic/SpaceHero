@@ -84,7 +84,7 @@ void SpaceHero::Init()
 	auto director = Engine::Director::getInstance();
 
 	// Explosion image
-	Engine::eImage* explosionImage = new Engine::eImage("Resources/explosion.png", "explosion", new RECT{ 0, 128, 128, 0 });
+	Engine::eImage* explosionImage = new Engine::eImage("Resources/explosion.png", explosionID, new RECT{ 0, 128, 128, 0 });
 	director->GetResourceManager()->AddImage(explosionImage);
 	// Projectile image
 	Engine::eImage* image = new Engine::eImage("Resources/projectile.png", projectileID, new RECT{ 0, 40, 40, 0 });

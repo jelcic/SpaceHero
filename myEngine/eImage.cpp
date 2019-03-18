@@ -2,7 +2,7 @@
 #include "Director.h"
 #include <string>
 
-Engine::eImage::eImage(const char * fileName, std::string _tag, RECT* drawRect) : tag(_tag), DrawRect(drawRect)
+Engine::eImage::eImage(const char * fileName, int _tag, RECT* drawRect) : tag(_tag), DrawRect(drawRect)
 {
 	IDirect3DDevice9 * device = Director::getInstance()->GetGraphicsManager()->GetDevice();
 

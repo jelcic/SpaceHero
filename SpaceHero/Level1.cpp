@@ -15,7 +15,7 @@ void Level1::Init()
 	auto director = Engine::Director::getInstance();
 
 	// Explosion image
-	Engine::eImage* explosionImage = director->GetResourceManager()->GetImage("explosion");
+	Engine::eImage* explosionImage = director->GetResourceManager()->GetImage(explosionID);
 
 	// player sprite with explosion
 	Engine::eImage*image = director->GetResourceManager()->GetImage(playerID);

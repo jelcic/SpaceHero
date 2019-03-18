@@ -21,7 +21,7 @@ void SpaceObject::draw()
 
 void SpaceObject::init() { }
 
-void SpaceObject::GetHitWith(std::string oName) { }
+void SpaceObject::GetHitWith(int oId) { }
 
 void SpaceObject::Collision(eGameObject * secondObject) { }
 

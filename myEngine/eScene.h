@@ -31,8 +31,8 @@ namespace Engine
 		// to do
 		virtual void RemoveGameObject(eGameObject* object);
 
-		eGameObject* GetGameObject(std::string name);
-		eGameObject* GetGameObject(std::string name, bool state);
+		eGameObject* GetGameObject(int id);
+		eGameObject* GetGameObject(int id, bool state);
 
 		void CheckCollisionsOnScene();
 		void PrintGameStatistics(bool s);

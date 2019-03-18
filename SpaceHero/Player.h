@@ -20,7 +20,7 @@ public:
 	// Collision effect on movement
 	void ResolveCollision(SpaceObject* secondObject, float speedCoef, float minSpeed) override;
 	// When collides as second object
-	virtual void GetHitWith(std::string oName) override;
+	virtual void GetHitWith(int oId) override;
 
 	//Ship explosion
 	void Explode();

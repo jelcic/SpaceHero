@@ -14,7 +14,7 @@ public:
 	// Object reaction on collision
 	void Collision(eGameObject * secondObject);
 	// When collides as second object
-	virtual void GetHitWith(std::string oName) override;
+	virtual void GetHitWith(int oId) override;
 
 	// Spawning functionality
 	static eGameObject* Spawning(Engine::eGameObject* object, GameData* data);

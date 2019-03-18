@@ -12,7 +12,7 @@ namespace Engine
 	{
 	public:
 		// Load the texture from the path. Supports all file types recognized by DX9 (.bmp, .dds, .dib, .hdr, .jpg, .pfm, .png, .ppm, .tga).
-		eImage(const char* fileName, std::string _tag, RECT* drawRect = nullptr);
+		eImage(const char* fileName, int _tag, RECT* drawRect = nullptr);
 		// Unloads the image
 		virtual ~eImage();
 
@@ -20,7 +20,7 @@ namespace Engine
 		// You can call this many times per frame (presumably with different parameters)
 		void Draw(RECT* pSrcRect, const Vec2 & position, const Size &objectSize, const Vec2 & rotationCenter, const Vec2& anchorPoint, float angle, float scale, unsigned long color = 0xffffffff);
 		Size textureSize;
-		std::string tag;
+		int tag;
 		RECT* DrawRect;
 	protected:
 		// The pointer to the D3D 9 texture

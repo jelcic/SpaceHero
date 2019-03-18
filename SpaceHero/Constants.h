@@ -11,11 +11,17 @@ const UINT GAME_WIDTH{ 800 };
 const UINT GAME_HEIGHT{ 600 };
 
 // Objects IDs
-const std::string playerID{ "player" };
-const std::string asteroidID{ "asteroid" };
-const std::string projectileID{ "projectile" };
-const std::string startbuttonID{ "button" };
-const std::string gameLogoID{ "gameLogo" };
+const int playerID { 0 };
+const int asteroidID { 1 };
+const int projectileID { 2 };
+const int startbuttonID { 3 };
+const int gameLogoID { 4 };
+const int explosionID{ 5 };
+const int hudID{ 6 };
+const int energyUI_ID{ 7 };
+const int energybarID{ 8 };
+const int fuelbarID{ 9 };
+const int scoreBarID{ 10 };
 
 // Asteroids masses
 const float sAsteroidMass{ 15.0f };

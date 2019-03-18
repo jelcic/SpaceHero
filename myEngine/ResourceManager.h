@@ -12,9 +12,9 @@ namespace Engine
 		~ResourceManager();
 
 		bool AddImage(eImage* image);
-		bool RemoveImage(std::string imageTag);
+		bool RemoveImage(int imageTag);
 		bool RemoveImage(eImage* image);
-		eImage* GetImage(std::string imageTag);
+		eImage* GetImage(int imageTag);
 
 	private:
 		std::vector<eImage*> ImageList;

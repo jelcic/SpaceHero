@@ -13,12 +13,12 @@ namespace Engine
 
 			for (unsigned int j = i + 1; j < objectList.size(); ++j)
 			{
-				const std::vector<std::string> v1 = objectList[i]->notCollidingWith;
-				const std::vector<std::string> v2 = objectList[j]->notCollidingWith;
+				const std::vector<int> v1 = objectList[i]->notCollidingWith;
+				const std::vector<int> v2 = objectList[j]->notCollidingWith;
 
 				if (!objectList[j]->active || !objectList[j]->collide
-					|| std::find(v1.begin(), v1.end(), objectList[j]->name) != v1.end()
-					|| std::find(v2.begin(), v2.end(), objectList[j]->name) != v2.end())
+					|| std::find(v1.begin(), v1.end(), objectList[j]->id) != v1.end()
+					|| std::find(v2.begin(), v2.end(), objectList[j]->id) != v2.end())
 					continue;
 
 				if (CheckColliding(objectList[i], objectList[j]))

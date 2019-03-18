@@ -20,7 +20,7 @@ public:
 	// Collision effect on movement
 	virtual void ResolveCollision(SpaceObject* secondObject, float speedCoef, float minSpeed);
 	// When collides as second object
-	virtual void GetHitWith(std::string oName);
+	virtual void GetHitWith(int oId);
 
 	// Main image to drawn on the screen
 	Engine::eImage* mainImage;
